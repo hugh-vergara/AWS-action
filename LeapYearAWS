@@ -1,0 +1,50 @@
+package leapyearpackage;
+
+import java.util.Scanner;
+
+public final class LeapYearCalculator {
+    
+    private LeapYearCalculator() {
+        super();
+    }
+
+    /**
+ *
+     * @param args
+     */
+    public static void main(final String[] args) {
+
+        boolean isLeap;
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a year: ");
+        final int year = sc.nextInt();
+
+        CalculateLeapYear calc = new CalculateLeapYear();
+        isLeap = calc.isLeapYear(year);
+        System.out.println(isLeap);
+        sc.close();
+    }
+
+}
+
+class CalculateLeapYear {
+
+
+    public boolean isLeapYear(final int year) {
+        final   int calcfh = 400;
+        final  int calc100 = 100;
+        final int calc4 = 4;
+        
+        if (year % calcfh == 0) {
+            return true;
+        } else if (year % calc100 == 0) {
+            return false;
+        } else if (year % calc4 == 0) {
+            return true;
+        }
+
+        return false;
+    }
+}
